@@ -2,7 +2,7 @@
 
     <div class="container">
         <section class="card col-8 m-auto">
-            <header class="card-header font-weight-bolder">SPA with Laravel and VueJs</header>
+            <app-header class="card-header font-weight-bolder">SPA with Laravel and VueJs</app-header>
             <main class="card-body">{{welcome}}</main>
         </section>
     </div>

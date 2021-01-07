@@ -17,9 +17,29 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
+                    <template v-if="!currentUser">
+                        <li>
+                            <router-link to="/login" class="nav-link">Login</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/register" class="nav-link">register</router-link>
+                        </li>
+                    </template>
+
+                    <template v-else>
+                        <li>
+                            <router-link to="/customers" class="nav-link">Customers</router-link>
+                        </li>
+                        <li class="item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                {{currentUser.name}} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a href="#" @click.prevent="logout" class="dropdown-item">Logout</a>
+                            </div>
+                        </li>
+                    </template>
 
                 </ul>
             </div>
@@ -29,7 +49,20 @@
 
 <script>
 export default {
-    name: "Header"
+    name: "app-header",
+
+    computed: {
+      currentUser() {
+          return this.$store.getters.currentUser;
+      }
+    },
+
+    methods: {
+        logout() {
+            this.$store.commit('logout');
+            this.$router.push('/login');
+        }
+    }
 }
 </script>
 

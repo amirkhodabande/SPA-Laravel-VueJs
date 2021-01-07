@@ -53,7 +53,7 @@ export default {
             state.auth_error = payload.error;
         },
 
-        logout() {
+        logout(state) {
             localStorage.removeItem('user');
             state.isLoggedIn = false;
             state.currentUser = null;

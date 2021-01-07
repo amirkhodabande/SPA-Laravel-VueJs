@@ -29,6 +29,13 @@
                         <div class="form-group row">
                             <button type="submit" class="btn btn-success">Login</button>
                         </div>
+
+                        <!-- Show errors -->
+                        <div class="form-group row alert alert-danger" v-if="authError">
+                            <p class="text-center ">
+                                {{authError}}
+                            </p>
+                        </div>
                     </form>
                 </main>
 
@@ -53,6 +60,12 @@ export default {
         };
     },
 
+    computed: {
+        authError() {
+            return this.$store.getters.authError;
+        }
+    },
+
     methods: {
         authenticate() {
             this.$store.dispatch('login');
@@ -70,4 +83,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

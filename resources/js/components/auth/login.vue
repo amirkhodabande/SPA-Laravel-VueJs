@@ -31,11 +31,11 @@
                         </div>
 
                         <!-- Show errors -->
-                        <div class="form-group row alert alert-danger" v-if="authError">
-                            <p class="text-center ">
-                                {{authError}}
-                            </p>
-                        </div>
+                        <ul class="list-group" v-if="authError">
+                            <li class="alert alert-danger  shadow">
+                                {{ authError }}
+                            </li>
+                        </ul>
                     </form>
                 </main>
 
@@ -84,5 +84,7 @@ export default {
 </script>
 
 <style scoped>
-
+li {
+    list-style: none;
+}
 </style>

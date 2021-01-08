@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -13,7 +14,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer = Customer::latest()->get();
+
+        return response()->json([
+            'customers' => $customer
+        ], 200);
     }
 
     /**
@@ -24,7 +29,11 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = Customer::create($request->only(['name', 'email', 'phone', 'website']));
+
+        return response()->json([
+            "customer" => $customer
+        ], 201);
     }
 
     /**
@@ -33,9 +42,11 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        //
+        return response()->json([
+            'customer' => $customer
+        ], 200);
     }
 
     /**

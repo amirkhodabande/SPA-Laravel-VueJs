@@ -73,6 +73,9 @@ export default {
     computed: {
         currentUser() {
             return this.$store.getters.currentUser;
+        },
+        customers() {
+            return this.$store.state.customers;
         }
     },
 
@@ -91,6 +94,7 @@ export default {
 
             axios.post('/api/customers', this.$data.customer)
                 .then((response) => {
+                    this.customers.unshift(response.data.customer)
                     this.$router.push('/customers')
                 });
 

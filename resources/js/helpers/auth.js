@@ -1,4 +1,4 @@
-import { setAuthorization } from "./general";
+import {setAuthorization} from "./general";
 
 export function login(credentials) {
     return new Promise((res, rej) => {
@@ -10,6 +10,20 @@ export function login(credentials) {
             })
             .catch((err) => {
                 rej("Wrong email or password");
+            });
+
+    })
+}
+
+export function register(credentials) {
+    return new Promise((res, rej) => {
+
+        axios.post('/api/auth/register', credentials)
+            .then((response) => {
+                res(response.data);
+            })
+            .catch((err) => {
+                rej("Please try again");
             });
 
     })

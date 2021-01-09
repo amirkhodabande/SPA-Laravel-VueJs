@@ -43,7 +43,8 @@
                     <!-- Show errors -->
                     <ul class="list-group" v-if="errors">
                         <li v-if="authError">{{ authError }}</li>
-                        <li class="alert alert-danger shadow" v-for="(fieldsError, fieldName) in errors" :key="fieldName">
+                        <li class="alert alert-danger shadow" v-for="(fieldsError, fieldName) in errors"
+                            :key="fieldName">
                             <strong>{{ fieldName }}</strong> {{ fieldsError.join('\n') }}
                         </li>
                     </ul>
@@ -93,7 +94,7 @@ export default {
             register(this.$data.form)
                 .then((res) => {
 
-                    //login user after registeration complete
+                    //login user after registeration completed
                     this.$store.dispatch('login');
 
                     login(this.$data.form)
@@ -107,8 +108,11 @@ export default {
 
                 })
                 .catch((error) => {
-                    this.$store.commit("registerFailed", {error});
-                });
+
+                    console.log("error error")
+
+                })
+
         },
 
         getConstraints() {

@@ -22,9 +22,9 @@ export function register(credentials) {
             .then((response) => {
                 res(response.data);
             })
-            .catch((err) => {
-                rej("Please try again");
-            });
+            .catch((error) => {
+                rej("Error");
+            })
 
     })
 }

@@ -2248,6 +2248,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2296,9 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         });
       })["catch"](function (error) {
-        _this.$store.commit("registerFailed", {
-          error: error
-        });
+        console.log("error error");
       });
     },
     getConstraints: function getConstraints() {
@@ -58562,8 +58561,8 @@ function register(credentials) {
   return new Promise(function (res, rej) {
     axios.post('/api/auth/register', credentials).then(function (response) {
       res(response.data);
-    })["catch"](function (err) {
-      rej("Please try again");
+    })["catch"](function (error) {
+      rej("Error");
     });
   });
 }

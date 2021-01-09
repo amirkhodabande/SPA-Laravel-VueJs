@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +16,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     /**
@@ -32,6 +34,15 @@ class AuthController extends Controller
 
         return $this->respondWithToken($token);
     }
+
+    public function register(UserRequest $request)
+    {
+        $credentials = $request->only(['name', 'email', 'password']);
+        $credentials['password'] = bcrypt($credentials['password']);
+
+        return response()->json(User::create($credentials), 201);
+    }
+
 
     /**
      * Get the authenticated User.

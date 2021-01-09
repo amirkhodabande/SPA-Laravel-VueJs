@@ -6,8 +6,10 @@ export function initialize(store, router) {
 
         if (requiresAuth && !currentUser) {
             next('/login');
-        } else if (to.path == '/login' && currentUser) {
-            next('/');
+        } else if (to.path == '/login' || to.path == '/register') {
+            if (currentUser)
+                next('/');
+            next();
         } else {
             next();
         }

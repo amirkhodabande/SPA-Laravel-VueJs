@@ -44,7 +44,7 @@ export default {
             state.isLoggedIn = true;
             state.loading = false;
             state.currentUser = Object.assign({}, payload.user, {token: payload.access_token});
-            //    Save logged in users informaion to the local storage....
+            //    Save logged in users information to the local storage....
             localStorage.setItem("user", JSON.stringify(state.currentUser));
         },
 
@@ -69,13 +69,10 @@ export default {
         },
 
         getCustomers(context) {
-            axios.get('/api/customers', {
-                headers: {
-                    "Authorization": `Bearer ${context.state.currentUser.token}`
-                }
-            }).then((response) => {
-                context.commit('updateCustomers', response.data.customers);
-            })
+            axios.get('/api/customers')
+                .then((response) => {
+                    context.commit('updateCustomers', response.data.customers);
+                })
         }
     }
 };

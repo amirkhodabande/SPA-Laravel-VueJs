@@ -89,13 +89,10 @@ export default {
                 return;
             }
 
-            axios.post('/api/customers', this.$data.customer, {
-                headers: {
-                    "Authorization": `Bearer ${this.currentUser.token}`
-                }
-            }).then((response) => {
-                this.$router.push('/customers')
-            });
+            axios.post('/api/customers', this.$data.customer)
+                .then((response) => {
+                    this.$router.push('/customers')
+                });
 
         },
         getConstraints() {

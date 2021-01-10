@@ -35,5 +35,5 @@
 
 **Be Happy:)**
 
-![alt](https://github.com/amirkhodabande/Vue-Laravel-SPA/blob/master/public/images/Pre1.PNG)
-![alt](https://github.com/amirkhodabande/Vue-Laravel-SPA/blob/master/public/images/Pre2.PNG)
+![alt](https://github.com/amirkhodabande/SPA-Laravel-VueJs/blob/master/public/images/Pre1.PNG)	   
+![alt](https://github.com/amirkhodabande/SPA-Laravel-VueJs/blob/master/public/images/Pre2.PNG)

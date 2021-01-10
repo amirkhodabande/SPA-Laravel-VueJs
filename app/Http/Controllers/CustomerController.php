@@ -54,12 +54,15 @@ class CustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->only(['name', 'email', 'phone', 'website']));
+
+        return response()->json([
+            "customer" => $customer
+        ], 200);
     }
 
     /**

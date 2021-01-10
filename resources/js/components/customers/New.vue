@@ -95,6 +95,10 @@ export default {
             axios.post('/api/customers', this.$data.customer)
                 .then((response) => {
                     this.customers.unshift(response.data.customer)
+
+                    this.$toaster.success(
+                        `Customer: ${this.$data.customer.name}, Created successfuly.`
+                    );
                     this.$router.push('/customers')
                 });
 

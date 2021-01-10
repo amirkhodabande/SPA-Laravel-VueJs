@@ -114,6 +114,10 @@ export default {
                         this.customers.splice(index, 1, this.$data.customer)
                     }
 
+                    this.$toaster.success(
+                        `Customer: ${this.$data.customer.name}, Updated successfuly.`
+                    );
+
                     this.$router.push('/customers')
                 });
         },

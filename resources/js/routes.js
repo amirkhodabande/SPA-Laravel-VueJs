@@ -7,6 +7,7 @@ import Register from "./components/auth/register";
 import CustomersMain from "./components/customers/Main"
 import CustomersList from "./components/customers/List"
 import NewCustomer from "./components/customers/New"
+import EditCustomer from "./components/customers/Update"
 import Customer from "./components/customers/View"
 
 export const routes = [
@@ -43,6 +44,10 @@ export const routes = [
             {
                 path: ':id',
                 component: Customer
+            },
+            {
+                path: 'edit/:id',
+                component: EditCustomer
             },
         ]
     },

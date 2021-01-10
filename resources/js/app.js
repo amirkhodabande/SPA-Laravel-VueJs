@@ -7,6 +7,10 @@ import {routes} from './routes'
 import StoreData from './store'
 import MainApp from "./components/MainApp"
 import {initialize} from './helpers/general'
+// V-Toaster
+import Toaster from "v-toaster";
+import "v-toaster/dist/v-toaster.css";
+Vue.use(Toaster, { timeout: 5000 });
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
